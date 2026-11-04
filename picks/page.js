@@ -1,56 +1,51 @@
-export default async function PicksPage() {
-  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://your-railway-url.up.railway.app";
-  
-  let data = { date: "Today", count: 0, message: "Loading...", picks: [], disclaimer: "" };
-  
-  try {
-    const res = await fetch(`${backendUrl}/picks/today`, { cache: 'no-store' });
-    if (res.ok) {
-      data = await res.json();
-    } else {
-      data.message = "Could not load picks from the server right now.";
-    }
-  } catch (error) {
-    data.message = "Network error. Could not reach the backend.";
-  }
-
+export default function Home() {
   return (
-    <div style={{ maxWidth: '800px', margin: '0 auto', padding: '40px 20px', fontFamily: 'sans-serif' }}>
-      <h1 style={{ fontSize: '2rem', marginBottom: '20px' }}>
-        {data.count > 0 ? `Today's Picks - ${data.date}` : "TrueValue Odds"}
-      </h1>
+    <main style={{ minHeight: '100vh', backgroundColor: '#0f172a', color: 'white', fontFamily: 'sans-serif', padding: '40px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       
-      {data.count === 0 ? (
-        <div style={{ backgroundColor: '#f3f4f6', padding: '20px', borderRadius: '8px', textAlign: 'center' }}>
-          <p style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#374151' }}>
-            {data.message || "No value today."}
-          </p>
-          <p style={{ fontSize: '0.9rem', color: '#6b7280', marginTop: '10px' }}>
-            We only publish picks when the math shows a real edge. Check back tomorrow.
-          </p>
-        </div>
-      ) : (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          {data.picks.map((pick) => (
-            <div key={pick.fixture_id} style={{ border: '1px solid #e5e7eb', padding: '20px', borderRadius: '8px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
-                <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>{pick.match}</h2>
-                <span style={{ backgroundColor: '#d1fae5', color: '#065f46', padding: '4px 12px', borderRadius: '999px', fontWeight: 'bold' }}>
-                  {pick.edge_pct}% Edge
-                </span>
-              </div>
-              <p style={{ fontSize: '1.1rem' }}>
-                Pick: <strong>{pick.pick}</strong> @ {pick.bookmaker_odds} ({pick.bookmaker})
-              </p>
-              <p style={{ color: '#4b5563', fontSize: '0.9rem', marginTop: '10px' }}>{pick.reason}</p>
-            </div>
-          ))}
-        </div>
-      )}
+      <div style={{ maxWidth: '600px', width: '100%', textAlign: 'center', marginTop: '50px' }}>
+        <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '20px' }}>TrueValue Odds</h1>
+        <p style={{ fontSize: '1.1rem', color: '#94a3b8', marginBottom: '40px', lineHeight: '1.6' }}>
+          A free South African football odds tool. We work out what a Premier League result should pay, compare it with bookmaker prices, and flag small, defensible edges. At most four picks a day, and some days none.
+        </p>
 
-      <div style={{ marginTop: '40px', fontSize: '0.8rem', color: '#9ca3af', borderTop: '1px solid #e5e7eb', paddingTop: '20px' }}>
-        <p>{data.disclaimer}</p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <a href="https://twitter.com/truevalueodds" target="_blank" rel="noopener noreferrer" style={{ backgroundColor: '#22c55e', color: 'white', padding: '15px', borderRadius: '8px', fontWeight: 'bold', textDecoration: 'none', display: 'block' }}>
+            Follow @truevalueodds
+          </a>
+
+          {/* The Button */}
+          <a href="/picks" style={{ backgroundColor: '#3b82f6', color: 'white', padding: '15px', borderRadius: '8px', fontWeight: 'bold', textDecoration: 'none', display: 'block' }}>
+            View Today's Picks
+          </a>
+
+          <a href="#how-it-works" style={{ backgroundColor: 'transparent', border: '1px solid #334155', color: 'white', padding: '15px', borderRadius: '8px', fontWeight: 'bold', textDecoration: 'none', display: 'block' }}>
+            How it works
+          </a>
+        </div>
       </div>
-    </div>
+
+      {/* FULL HOW IT WORKS SECTION */}
+      <div id="how-it-works" style={{ maxWidth: '600px', width: '100%', marginTop: '80px', paddingBottom: '60px' }}>
+        <h2 style={{ fontSize: '2rem', fontWeight: 'bold', textAlign: 'center', marginBottom: '40px' }}>How TrueValue Odds works</h2>
+        
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div style={{ backgroundColor: '#1e293b', padding: '30px', borderRadius: '12px' }}>
+            <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', marginBottom: '10px' }}>1. We work out the fair odds</h3>
+            <p style={{ color: '#94a3b8' }}>Our Poisson model calculates the true probability of a home win, draw, or away win based on historical team performance.</p>
+          </div>
+          
+          <div style={{ backgroundColor: '#1e293b', padding: '30px', borderRadius: '12px' }}>
+            <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', marginBottom: '10px' }}>2. We compare with bookmakers</h3>
+            <p style={{ color: '#94a3b8' }}>We check the live odds from top South African bookmakers to see what they are actually paying out.</p>
+          </div>
+
+          <div style={{ backgroundColor: '#1e293b', padding: '30px', borderRadius: '12px' }}>
+            <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', marginBottom: '10px' }}>3. We flag the edges</h3>
+            <p style={{ color: '#94a3b8' }}>If the bookmaker is paying more than the true probability suggests, we flag it. If there is no value, we say so.</p>
+          </div>
+        </div>
+      </div>
+
+    </main>
   );
 }
