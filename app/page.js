@@ -46,6 +46,12 @@ export default function Home() {
         </div>
       </div>
 
+          {/* Disclaimer Footer */}
+      <footer style={{ marginTop: 'auto', paddingTop: '40px', borderTop: '1px solid #1e293b', width: '100%', maxWidth: '600px', textAlign: 'center', color: '#64748b', fontSize: '0.85rem' }}>
+        <p>Estimates, not guarantees. 18+ only. Gamble responsibly.</p>
+        <p>If you or someone you know has a gambling problem, call the National Responsible Gambling Programme on 0800 006 008.</p>
+      </footer>
+
     </main>
   );
 }
