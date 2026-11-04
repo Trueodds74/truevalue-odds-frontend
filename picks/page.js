@@ -50,7 +50,6 @@ export default async function PicksPage() {
 
       <div style={{ marginTop: '40px', fontSize: '0.8rem', color: '#9ca3af', borderTop: '1px solid #e5e7eb', paddingTop: '20px' }}>
         <p>{data.disclaimer}</p>
-        <p>18+ only. Gamble responsibly.</p>
       </div>
     </div>
   );
