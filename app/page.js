@@ -20,6 +20,21 @@ export default function Home() {
         </a>
       </nav>
 
+  import Link from 'next/link';
+
+// ... wherever you want the button to appear ...
+<Link href="/picks" style={{ 
+  backgroundColor: '#059669', 
+  color: 'white', 
+  padding: '12px 24px', 
+  borderRadius: '8px', 
+  fontWeight: 'bold',
+  textDecoration: 'none',
+  display: 'inline-block'
+}}>
+  View Today's Picks
+</Link>
+
       {/* Hero Section */}
       <section className="text-center py-20 px-4 max-w-4xl mx-auto">
         <h2 className="text-5xl md:text-6xl font-extrabold mb-6">
