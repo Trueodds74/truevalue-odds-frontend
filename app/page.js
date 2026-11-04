@@ -96,6 +96,24 @@ export default function Home() {
           </div>
         </div>
       </section>
+import Link from 'next/link'; // (If this is already at the top of the file, don't paste it again)
+
+// ... (inside the return statement, under your other buttons) ...
+
+<Link href="/picks" style={{ 
+  display: 'block',
+  textAlign: 'center',
+  marginTop: '16px',
+  backgroundColor: '#1d4ed8', // A distinct blue color
+  color: 'white', 
+  padding: '12px 24px', 
+  borderRadius: '8px', 
+  fontWeight: 'bold',
+  textDecoration: 'none'
+}}>
+  View Today's Picks
+</Link>
+
 
       {/* Honest notes */}
       <section className="py-16 px-4">
