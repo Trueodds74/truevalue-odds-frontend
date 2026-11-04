@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 export default function Home() {
   return (
     <main style={{ minHeight: '100vh', backgroundColor: '#0f172a', color: 'white', fontFamily: 'sans-serif', padding: '40px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -16,9 +14,9 @@ export default function Home() {
           </a>
 
           {/* THIS IS THE NEW BUTTON */}
-          <Link href="/picks" style={{ backgroundColor: '#3b82f6', color: 'white', padding: '15px', borderRadius: '8px', fontWeight: 'bold', textDecoration: 'none' }}>
+          <a href="/picks" style={{ backgroundColor: '#3b82f6', color: 'white', padding: '15px', borderRadius: '8px', fontWeight: 'bold', textDecoration: 'none' }}>
             View Today's Picks
-          </Link>
+          </a>
 
           <a href="#how-it-works" style={{ backgroundColor: 'transparent', border: '1px solid #334155', color: 'white', padding: '15px', borderRadius: '8px', fontWeight: 'bold', textDecoration: 'none' }}>
             How it works
