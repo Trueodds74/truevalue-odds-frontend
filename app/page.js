@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Footer from "./components/Footer";
 
 const X_URL = "https://x.com/truevalueodds";
@@ -18,10 +19,8 @@ export default function Home() {
         >
           Follow on X
         </a>
-      </nav>
-
-  import Link from 'next/link';
-
+      </na>
+            
 // ... wherever you want the button to appear ...
 <Link href="/picks" style={{ 
   backgroundColor: '#059669', 
