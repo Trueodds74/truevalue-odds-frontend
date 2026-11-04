@@ -1,7 +1,8 @@
 export default async function PicksPage() {
-  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://web-production-c7764.up.railway.app";
+  // Hardcoded Railway URL so it never fails
+  const backendUrl = "https://web-production-c7764.up.railway.app";
   
-  let data = { date: "Today", count: 0, message: "Loading...", picks: [], disclaimer: "" };
+  let data = { date: "Today", count: 0, message: "Loading...", picks: [], disclaimer: "Estimates, not guarantees. 18+ only. Gamble responsibly." };
   
   try {
     const res = await fetch(`${backendUrl}/picks/today`, { cache: 'no-store' });
@@ -33,16 +34,24 @@ export default async function PicksPage() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           {data.picks.map((pick) => (
             <div key={pick.fixture_id} style={{ border: '1px solid #374151', padding: '20px', borderRadius: '8px' }}>
+              
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
                 <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>{pick.match}</h2>
                 <span style={{ backgroundColor: '#d1fae5', color: '#065f46', padding: '4px 12px', borderRadius: '999px', fontWeight: 'bold' }}>
                   {pick.edge_pct}% Edge
                 </span>
               </div>
+              
               <p style={{ fontSize: '1.1rem' }}>
                 Pick: <strong>{pick.pick}</strong> @ {pick.bookmaker_odds} ({pick.bookmaker})
               </p>
-              <p style={{ color: '#9ca3af', fontSize: '0.9rem', marginTop: '10px' }}>{pick.reason}</p>
+              
+              <p style={{ color: '#9ca3af', fontSize: '0.9rem', marginTop: '10px', marginBottom: '15px' }}>{pick.reason}</p>
+              
+              {/* THE BET BUTTON */}
+              <a href="https://yesplay.co.za" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', backgroundColor: '#f59e0b', color: 'white', padding: '10px 24px', borderRadius: '6px', fontWeight: 'bold', textDecoration: 'none' }}>
+                Bet Now
+              </a>
             </div>
           ))}
         </div>
@@ -50,6 +59,9 @@ export default async function PicksPage() {
 
       <div style={{ marginTop: '40px', fontSize: '0.8rem', color: '#6b7280', borderTop: '1px solid #374151', paddingTop: '20px' }}>
         <p>{data.disclaimer}</p>
+        <p style={{ marginTop: '10px' }}>
+          <strong>Affiliate Disclosure:</strong> We may earn a commission if you sign up and bet through our links. This does not affect the odds we show or the mathematics of our picks.
+        </p>
       </div>
     </div>
   );
