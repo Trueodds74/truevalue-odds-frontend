@@ -1,5 +1,5 @@
 export default async function PicksPage() {
-  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://your-railway-url.up.railway.app";
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://web-production-c7764.up.railway.app";
   
   let data = { date: "Today", count: 0, message: "Loading...", picks: [], disclaimer: "" };
   
