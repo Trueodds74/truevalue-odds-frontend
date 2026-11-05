@@ -49,7 +49,7 @@ export default async function PicksPage() {
               <p style={{ color: '#9ca3af', fontSize: '0.9rem', marginTop: '10px', marginBottom: '15px' }}>{pick.reason}</p>
               
               {/* THE BET BUTTON */}
-              <a href="https://https://goyesplay.com/yuvxplqbe" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', backgroundColor: '#f59e0b', color: 'white', padding: '10px 24px', borderRadius: '6px', fontWeight: 'bold', textDecoration: 'none' }}>
+              <a href="https://https://goyesplay.com/ykkmr1t21" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', backgroundColor: '#f59e0b', color: 'white', padding: '10px 24px', borderRadius: '6px', fontWeight: 'bold', textDecoration: 'none' }}>
                 Bet Now
               </a>
             </div>
