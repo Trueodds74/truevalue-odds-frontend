@@ -1,3 +1,4 @@
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -12,12 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 const description =
-  "Free South African football odds tool. We work out fair odds for Premier League matches, compare them with bookmaker prices and flag small edges. 18+ only.";
+  "Free South African football odds tool. We work out fair odds, compare them with bookmaker prices and flag small edges. Currently in testing. 18+ only.";
 
 export const metadata = {
   metadataBase: new URL("https://truevalueodds.co.za"),
   title: {
-    default: "TrueValue Odds | Fair odds vs South African bookmaker prices",
+    default: "TrueValue Odds | Football odds, explained honestly",
     template: "%s | TrueValue Odds",
   },
   description,
