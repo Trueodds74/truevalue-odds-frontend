@@ -1,31 +1,48 @@
-import Link from "next/link";
+const EMAIL = "alfred@truevalueodds.co.za";
 
 export default function Footer() {
   return (
-    <footer className="py-10 px-4 text-center text-gray-400 text-sm border-t border-gray-800">
-      <p className="font-semibold text-gray-300">
-        18+ only. Gambling can be addictive. Play responsibly.
-      </p>
-      <p className="mt-2">
-        Gambling problem? Free, confidential help: 0800 006 008 (SARGF, 24 hours).
-      </p>
-      <p className="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-2">
-        <Link href="/responsible-gambling" className="hover:text-green-500 underline">
-          Responsible gambling
-        </Link>
-        <Link href="/terms" className="hover:text-green-500 underline">
-          Terms
-        </Link>
-        <Link href="/privacy" className="hover:text-green-500 underline">
-          Privacy
-        </Link>
-        <a href="mailto:alfred@truevalueodds.co.za" className="hover:text-green-500 underline">
-          Contact
-        </a>
-      </p>
-      <p className="mt-4 text-gray-500">
-        &copy; 2026 TrueValue Odds. Built in South Africa. We are not a bookmaker and we do not take bets.
-      </p>
+    <footer className="border-t border-gray-800 bg-gray-950 text-gray-400">
+      <div className="max-w-6xl mx-auto px-4 py-10 grid gap-8 md:grid-cols-3">
+        <div>
+          <p className="text-lg font-bold text-white">
+            TrueValue<span className="text-green-500">Odds</span>
+          </p>
+          <p className="mt-2 text-sm">
+            A free football odds tool for South Africa. We are not a bookmaker and we do not
+            take bets.
+          </p>
+        </div>
+
+        <div className="text-sm space-y-2">
+          <p className="font-semibold text-white">Find us</p>
+          <p>
+            <a className="hover:text-green-400" href={`mailto:${EMAIL}`}>
+              {EMAIL}
+            </a>
+          </p>
+          <p>X, Instagram and Facebook: @truevalueodds</p>
+          <p className="space-x-4 pt-2">
+            <a className="hover:text-green-400" href="/terms">Terms</a>
+            <a className="hover:text-green-400" href="/privacy">Privacy</a>
+            <a className="hover:text-green-400" href="/responsible-gambling">
+              Responsible gambling
+            </a>
+          </p>
+        </div>
+
+        <div className="text-sm space-y-2">
+          <p className="font-semibold text-white">18+ only. Play responsibly.</p>
+          <p>
+            Betting can be addictive and you can lose money. Only bet what you can afford to
+            lose. If gambling is a problem for you or someone you know, the South African
+            Responsible Gambling Foundation has a free helpline: <strong>0800 006 008</strong>.
+          </p>
+        </div>
+      </div>
+      <div className="border-t border-gray-900 py-4 text-center text-xs text-gray-500">
+        © {new Date().getFullYear()} TrueValue Odds. Our numbers are estimates, not guarantees.
+      </div>
     </footer>
   );
 }
