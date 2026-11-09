@@ -17,6 +17,11 @@ const LEAGUES = [
   "Pro League (Belgium)",
   "Scottish Premiership",
   "South African PSL",
+  "Championship (England)",
+  "Segunda División (Spain)",
+  "2. Bundesliga (Germany)",
+  "Serie B (Italy)",
+  "Ligue 2 (France)",
 ];
 
 const RULES = [
